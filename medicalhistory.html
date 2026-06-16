@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical History - AI Healthcare</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .history-layout {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .form-section {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-premium);
+            margin-bottom: 40px;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: var(--transition);
+        }
+
+        .form-section:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--bg-dark);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title span {
+            width: 45px;
+            height: 45px;
+            background: rgba(45, 206, 177, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--bg-dark);
+            font-size: 0.95rem;
+        }
+
+        textarea.form-input {
+            min-height: 120px;
+            resize: vertical;
+            padding: 18px 25px;
+        }
+
+        input.form-input,
+        select.form-input {
+            height: 55px;
+            padding: 0 25px;
+            background: #f8fafc;
+            border: 2px solid transparent;
+        }
+
+        input.form-input:focus,
+        select.form-input:focus,
+        textarea.form-input:focus {
+            background: white;
+            border-color: var(--primary);
+        }
+
+        .security-banner {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+            padding: 20px 30px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body class="animate-fade">
+
+    <aside class="sidebar">
+        <div class="logo-container">
+            <div class="logo-icon">🏥</div>
+            <h2>AI Health</h2>
+        </div>
+
+        <ul class="sidebar-nav">
+            <li><a href="dashboard.html"><span>📊</span> Dashboard</a></li>
+            <li><a href="aichatbot.html"><span>🤖</span> AI Chatbot</a></li>
+            <li><a href="appointments.html"><span>📅</span> Smart Schedule</a></li>
+            <li><a href="medications.html"><span>💊</span> Medications</a></li>
+            <li><a href="health-tracker.html"><span>📈</span> Health Tracker</a></li>
+            <li><a href="nearby-hospitals.html"><span>🏥</span> Nearby Hospitals</a></li>
+            <li><a href="medicalhistory.html" class="active"><span>📋</span> Medical History</a></li>
+            <li><a href="medicalrecords.html"><span>📂</span> Medical Records</a></li>
+            <li><a href="settings.html"><span>⚙️</span> Settings</a></li>
+        </ul>
+
+        <div class="logout">
+            <a href="#" onclick="logout()"><span>🚪</span> Logout</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header style="margin-bottom: 50px;">
+            <p
+                style="text-transform: uppercase; font-weight: 800; font-size: 0.8rem; color: var(--primary); letter-spacing: 2px; margin-bottom: 10px;">
+                Personal Records</p>
+            <h1 style="font-size: 2.8rem; letter-spacing: -1.5px;">Medical Profile</h1>
+        </header>
+
+        <div class="history-layout">
+            <div class="security-banner">
+                <span style="font-size: 1.5rem;">🔒</span>
+                <p style="font-size: 0.9rem; color: #065f46; font-weight: 600; line-height: 1.5;">
+                    Your medical data is encrypted and stored securely. This information is only used to personalize
+                    your AI health insights and treatment plans.
+                </p>
+            </div>
+
+            <form id="medical-form">
+                <section class="form-section">
+                    <div class="section-title"><span>🩺</span> Clinical Background</div>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>Chronic Conditions</label>
+                            <textarea class="form-input"
+                                placeholder="List existing conditions like Diabetes, Hypertension, etc."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Allergies & Sensitivities</label>
+                            <textarea class="form-input"
+                                placeholder="e.g. Medications, Food, Environmental factors"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Blood Group</label>
+                            <select class="form-input">
+                                <option>Select Blood Type</option>
+                                <option>A+</option>
+                                <option>A-</option>
+                                <option>B+</option>
+                                <option>B-</option>
+                                <option>AB+</option>
+                                <option>AB-</option>
+                                <option>O+</option>
+                                <option>O-</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Medical Checkup</label>
+                            <input type="date" class="form-input">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <div class="section-title"><span>🏨</span> Hospitalization & Surgeries</div>
+                    <div class="form-group full-width">
+                        <label>Past Procedures</label>
+                        <textarea class="form-input"
+                            placeholder="Describe any past surgeries or extended hospital stays with approximate dates"></textarea>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <div class="section-title"><span>🍎</span> Lifestyle & Habits</div>
+                    <div class="form-group full-width">
+                        <label>General Habits</label>
+                        <textarea class="form-input"
+                            placeholder="Exercise frequency, diet preferences, smoking/alcohol status, etc."></textarea>
+                    </div>
+                </section>
+
+                <button type="submit" class="btn btn-primary"
+                    style="width: 100%; padding: 22px; font-size: 1.2rem; margin-bottom: 60px; box-shadow: 0 15px 30px rgba(45, 206, 177, 0.3);">
+                    Save Medical Profile 💾
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Auth
+        if (!localStorage.getItem('isLoggedIn')) {
+            window.location.href = 'login.html';
+        }
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = 'index.html';
+        }
+
+        document.getElementById('medical-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Show success toast
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = '✅ Profile Updated Successfully!';
+            btn.style.background = 'var(--success)';
+
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.background = '';
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>
+
+</html>

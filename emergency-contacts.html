@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Contacts</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body class="animate-fade">
+
+    <aside class="sidebar">
+        <div class="logo-container">
+            <div class="logo-icon">🏥</div>
+            <h2>AI Health</h2>
+        </div>
+
+        <ul class="sidebar-nav">
+            <li><a href="dashboard.html"><span>📊</span> Dashboard</a></li>
+            <li><a href="aichatbot.html"><span>🤖</span> AI Chatbot</a></li>
+            <li><a href="appointments.html"><span>📅</span> Smart Schedule</a></li>
+            <li><a href="medications.html"><span>💊</span> Medications</a></li>
+            <li><a href="health-tracker.html"><span>📈</span> Health Tracker</a></li>
+            <li><a href="nearby-hospitals.html"><span>🏥</span> Nearby Hospitals</a></li>
+            <li><a href="medicalhistory.html"><span>📋</span> Medical History</a></li>
+            <li><a href="settings.html"><span>⚙️</span> Settings</a></li>
+        </ul>
+
+        <div class="logout">
+            <a href="#" onclick="logout()"><span>🚪</span> Logout</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header style="margin-bottom: 40px;">
+            <h1>Emergency Contacts</h1>
+            <p style="color: var(--text-muted);">Quick access to local and national help lines</p>
+        </header>
+
+        <div class="glass" style="max-width: 800px; padding: 40px; border-radius: var(--border-radius);">
+            <div class="contact glass"
+                style="background: rgba(45, 206, 177, 0.1); border: 2px solid var(--primary); margin-bottom: 20px;">
+                <h2 style="color: var(--primary);">🚑 Medical Emergency</h2>
+                <p style="font-size: 1.5rem; font-weight: 800; color: var(--danger); margin: 10px 0;">CALL: 911</p>
+                <p style="color: var(--text-muted);">Available 24/7 for immediate medical assistance.</p>
+            </div>
+            <div class="contact glass" style="margin-bottom: 20px;">
+                <h2 style="color: var(--secondary);">🐍 Poison Control</h2>
+                <p style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin: 10px 0;">1-800-222-1222
+                </p>
+                <p style="color: var(--text-muted);">Provides expert advice in case of poisoning.</p>
+            </div>
+            <div class="contact glass">
+                <h2 style="color: var(--accent);">🧠 Mental Health Helpline</h2>
+                <p style="font-size: 1.2rem; font-weight: 700; color: var(--accent); margin: 10px 0;">CALL: 988</p>
+                <p style="color: var(--text-muted);">Confidential support for mental health crises.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function logout() {
+            localStorage.clear();
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>
